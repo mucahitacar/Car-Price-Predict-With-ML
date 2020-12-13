@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Araç Fiyat Tahmin</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Araç Fiyat Tahmini</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        	
+    	<select name="marka">
+        	<option value="0">Marka</option>
+            <option value="1">BMW</option>
+            <option value="2">Citroen</option>
+            <option value="3">Ford</option>
+            <option value="4">Hyundai</option>
+            <option value="5">Kia</option>
+            <option value="6">Mazda</option>
+            <option value="7">Opel</option>
+            <option value="8">Peugeot</option>
+            <option value="9">Renault</option>
+            <option value="10">Tofaş</option>
+            <option value="11">Volvo</option>
+        </select>
+        
+        <select name="model">
+            <option value="0">Segment</option>
+            <option value="1">A Segment</option>
+            <option value="2">B Segment</option>
+            <option value="3">C Segment</option>
+            <option value="4">D Segment</option>
+        </select>
+        
+		<select name="yakit">
+    		<option value="0">Yakıt Tipi</option>
+            <option value="1">lpg</option>
+            <option value="2">benzin</option>
+            <option value="3">dizel</option>
+        </select>
+      
+        <select name="vites">
+            <option value="0">Vites Tipi</option>
+            <option value="1">man</option>
+            <option value="2">oto</option>
+        </select><br></br>  
+        
+        
+		<input type="text" name="yil" placeholder="Yıl" required="required" />
+        <input type="text" name="km" placeholder="Km" required="required" />
+		
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Tahmin</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
