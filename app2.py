@@ -21,7 +21,7 @@ def predict():
 
     output = round(prediction[0], 2)
 
-    return render_template('index2.html', prediction_text='Tahmini Fiyat ₺ {}'.format(output))
+    return render_template('index2.html', prediction_text='Tahmini Fiyatı ₺ {}'.format(output))
 
 
 
